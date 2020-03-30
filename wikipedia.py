@@ -1,6 +1,8 @@
 import requests
 from requests.exceptions import RequestException
 
+from mylogging import file_logged
+
 _WIKI_URL = "https://en.wikipedia.org/wiki/"
 _MAX_RETRIES = 3
 _REQ_TIMEOUT = 30
@@ -23,6 +25,7 @@ class PageFinder:
         term = next(self._iter)
         return term, self._page_url(term)
 
+    @file_logged("_page_url.log.txt")
     def _page_url(self, term):
         response = _http_request(
             self._method, _WIKI_URL + term, timeout=_REQ_TIMEOUT
@@ -34,6 +37,7 @@ class PageFinder:
         return response.url
 
 
+@file_logged("_http_request.log.txt")
 def _http_request(method, url, **kwargs):
     for _ in range(0, _MAX_RETRIES):
         req_exc = None
