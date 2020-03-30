@@ -1,6 +1,5 @@
-from requests.exceptions import RequestException
-
 import requests
+from requests.exceptions import RequestException
 
 _WIKI_URL = "https://en.wikipedia.org/wiki/"
 _MAX_RETRIES = 3

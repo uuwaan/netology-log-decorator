@@ -1,9 +1,10 @@
 import json
+
 import requests
 
-import wikipedia
-import ratelim
 import indicator
+import ratelim
+import wikipedia
 
 COUNTRIES_FILE = "countries.json"
 LINKS_FILE = "country_links.txt"
