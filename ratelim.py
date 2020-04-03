@@ -1,6 +1,5 @@
-from datetime import datetime
-
 import time
+from datetime import datetime
 
 _ERR_EXCEED = "Number of requested tokens {0} exceeds maximum of {1}"
 
